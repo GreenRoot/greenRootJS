@@ -19,38 +19,50 @@ var mainList = {
 
 // *******Первый способ*******
 // var i = 0;
-// while (i < 5) {
+// while (i < 3) {
 // 	i++;
-// }
+// 	let a = prompt('Какой тип товара будем продавать?');
+// 		if ((typeof(a)) === 'string' && (typeof(a)) !== null && a !== '' && a.length < 50 ) {
+// 		console.log('Товар добавлен');
+// 		mainList.shopGoods[i] = a;
+// 	} else  
+// 		i--; //Если поля ввода не соответствуют правилам то повторяем запрос
+// 	}
+// };
+
 // *******Второй способ*******
 // var i = 0;
 // do {
 // 	i++;
-// }
-// while (i < 5);
-// *******Домашнее задание*******
+// 	let a = prompt('Какой тип товара будем продавать?');
+// 		if ((typeof(a)) === 'string' && (typeof(a)) !== null && a !== '' && a.length < 50 ) {
+// 		console.log('Товар добавлен');
+// 		mainList.shopGoods[i] = a;
+// 		} else  
+// 		i--; //Если поля ввода не соответствуют правилам то повторяем запрос
+// 	}
+// while (i < 3);
 
-
-for (let i = 0; i < 2; i++) {
-
-	let a = prompt('Какой тип товара будем продавать?');
-	
+// *******Третий способ*******
+for (let i = 0; i < 3; i++) {
+	let a = prompt('Какой тип товара будем продавать?');	
 	if ((typeof(a)) === 'string' && (typeof(a)) !== null && a !== '' && a.length < 50 ) {
 		console.log('Всё хорошо!');
 		mainList.shopGoods[i] = a;
 	} else {
 		i--;
 	}
-	if (time < 0) { 
-		console.log('Такого не может быть!');
-		} else if (time > 8 && time < 20) {
-				console.log('Время работать!')
-			} else if (time < 24) {
-					console.log('Уже слишком поздно!')
-				} else {
-						console.log('В сутках только 24 часа!')
-					};
 };
+
+if (time < 0) {
+	console.log('Такого не может быть!');
+	} else if (time > 8 && time < 20) {
+			console.log('Время работать!')
+		} else if (time < 24) {
+				console.log('Уже слишком поздно!')
+			} else {
+					console.log('В сутках только 24 часа!')  // Проверяем время
+				};
 
 var budgetForTheDay = budget/30;
 console.log(mainList);
