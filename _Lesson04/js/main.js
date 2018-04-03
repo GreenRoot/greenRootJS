@@ -11,11 +11,10 @@ function start() {
 	time			= 19;
 	budget		= +prompt("Какой у Вас бюджет?", "");
 	while (isNaN(budget) || budget == "" || budget == null || budget < 0) {
-		budget = +prompt("Какой у Вас бюджет?");
+		budget = +prompt("Какой у Вас бюджет?" , "");
 	}
 };
 // start();
-
 
 let mainList = {
 	budget: budget,
@@ -63,10 +62,26 @@ let mainList = {
 		}
 	},
 	chooseShopItems: function chooseShopItems() {
-		let items = prompt("Перечислите через запятую товары", "")
+		let items = prompt("Перечислите через запятую товары", "");
+		while ((typeof(items)) !== "string" || (typeof(items)) == null || items == "") {
+			items = prompt("Перечислите через запятую товары", "");
+		}
 		mainList.shopItems = items.split(",");
-		mainList.shopItems.push(prompt("Подождите, ещё", ""));
 		mainList.shopItems.sort();
-	}
+		mainList.shopItems.forEach(function(item, i, arr) {
+			console.log(i+1 + " " + item);
+			})
+			for (let i = 0; i < mainList.shopItems.length; i++) {
+				alert("Наш магазин включает в себя: " + mainList.shopItems[i]);
+			}
+		}
 };
+
 console.log(mainList);
+mainList.chooseShopItems();
+
+
+
+
+
+
