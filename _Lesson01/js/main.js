@@ -1,4 +1,4 @@
-;
+; //lesson01
 var budget = +prompt("Какой у Вас бюджет?");
 var shopName = prompt("Введите название магазина");
 var open = confirm("Магазин ещё открыт?");
