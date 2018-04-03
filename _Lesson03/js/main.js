@@ -17,7 +17,6 @@ function start() {
 };
 // start();
 
-
 let mainList = {
 	budget: budget,
 	shopName: shopName,
