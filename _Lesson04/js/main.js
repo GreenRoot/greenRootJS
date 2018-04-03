@@ -7,13 +7,12 @@ let budget,
 		price
 
 function start() {
-	budget = +prompt("Какой у Вас бюджет?", "");
+	shopName	= prompt("Введите название магазина", "").toUpperCase();
+	time			= 19;
+	budget		= +prompt("Какой у Вас бюджет?", "");
 	while (isNaN(budget) || budget == "" || budget == null || budget < 0) {
 		budget = +prompt("Какой у Вас бюджет?");
 	}
-
-	shopName = prompt("Введите название магазина", "").toUpperCase();
-	time = 19;
 };
 // start();
 
