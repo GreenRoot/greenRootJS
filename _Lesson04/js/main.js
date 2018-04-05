@@ -63,7 +63,7 @@ let mainList = {
 	},
 	chooseShopItems: function chooseShopItems() {
 		let items = prompt("Перечислите через запятую товары", "");
-		while ((typeof(items)) !== "string" || (typeof(items)) == null || items == "") {
+		while ( !isNaN(items) || (typeof(items)) == null || items == "") {
 			items = prompt("Перечислите через запятую товары", "");
 		}
 		mainList.shopItems = items.split(",");
