@@ -2,7 +2,7 @@ let body = document.getElementsByTagName("body");
 let menuItem = document.querySelectorAll(".menu-item");
 let title = document.querySelectorAll(".title")
 let adv = document.querySelector(".adv");
-
+let pr = document.querySelector(".prompt")
 
 menuItem[0].style.order = "1";
 menuItem[1].style.order = "3";
@@ -12,5 +12,5 @@ body[0].style.background = "url(img/apple_true.jpg) center no-repeat";
 title[0].textContent = "Мы продаем только подлинную технику Apple";
 adv.remove();
 
-let answer = setTimeout("prompt('Как Вы относитесь к технике Apple?')", 2000);
-console.log(answer);
+let answer = prompt('Как Вы относитесь к технике Apple?', '');
+pr.textContent = (answer);
