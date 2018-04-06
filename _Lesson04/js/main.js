@@ -79,9 +79,3 @@ let mainList = {
 
 console.log(mainList);
 mainList.chooseShopItems();
-
-
-
-
-
-
