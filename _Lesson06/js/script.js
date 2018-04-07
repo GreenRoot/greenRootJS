@@ -39,7 +39,8 @@ openBtn.addEventListener("click", () => {
 goodsItemBtn.addEventListener("click", () => {
 	for (let i = 0; i < goodsItem.length; i++) {
 		let a = goodsItem[i].value;
-		if ((typeof(a)) === "string" && (typeof(a)) !== null && a !== "" && a.length < 50 ) {
+
+		if ((typeof(a)) === "string" && (typeof(a)) != null && a.length < 50 ) {
 			console.log("Товар добавлен!");
 			mainList.shopGoods[i] = a;
 			goodsValue.textContent = mainList.shopGoods;
@@ -51,15 +52,17 @@ goodsItemBtn.addEventListener("click", () => {
 
 chooseItem.addEventListener("change", () => {
 	let items = chooseItem.value;
+
 	if (isNaN(items) && items != "") {
-	mainList.shopItems = items.split(", ");
-	mainList.shopItems.sort();
-	itemsValue.textContent = mainList.shopItems;
+		mainList.shopItems = items.split(", ");
+		mainList.shopItems.sort();
+		itemsValue.textContent = mainList.shopItems;
 	}
 });
 
 timeValue.addEventListener("change", () => {
 	let time = timeValue.value;
+
 	if (time < 0) {
 	console.log("Такого не может быть!");
 	mainList.open = false;
