@@ -33,7 +33,7 @@ window.addEventListener("DOMContentLoaded", function() {
 
 //timer
 
-	let deadline = "2018-04-10";
+	let deadline = "2018-04-12";
 	function getTimeRemaining(endtime) {
 		let t = Date.parse(endtime) - Date.parse(new Date()),
 				seconds = Math.floor( (t/1000) % 60 ),
@@ -141,17 +141,17 @@ window.addEventListener("DOMContentLoaded", function() {
 			this.textAlign = textAlign;
 		}
 		newDiv() {
-			let enyDiv = document.createElement('div');
-			enyDiv.textContent("Некий текст");
-			enyDiv.style.cssText = `\
+			let certainDiv = document.createElement('div');
+			certainDiv.textContent = "Некий текст";
+			certainDiv.style.cssText = `\
 			height: ${this.height}; \
 			width: ${this.width}; \
-			background: ${this.bg}; \
+			background-color: ${this.bg}; \
 			font-size: ${this.fontSize}; \
 			text-align: ${this.textAlign};`;
-			document.appendChild(anyDiv);
+			document.body.appendChild(certainDiv);
 		}
-	}
-	let anyDivAndStyles = new options;
-	anyDivAndStyles.newDiv();
+	};
+	let certainDivAndStyles = new options();
+	certainDivAndStyles.newDiv();
 });
