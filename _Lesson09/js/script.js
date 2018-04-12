@@ -89,6 +89,7 @@ window.addEventListener("DOMContentLoaded", function() {
 		}
 	});
 
+	/* Кнопки "Узнат подробнее"*/
 	let descriptionBtn = document.getElementsByClassName("description-btn");
 	let overlay = document.querySelector(".overlay");
 	let close = document.querySelector(".popup-close");
@@ -109,6 +110,7 @@ window.addEventListener("DOMContentLoaded", function() {
 		});
 	}
 
+	/*Кнопка "Узнать больше"*/
 	let more = document.querySelector(".more");
 
 	more.addEventListener("click", function() {
