@@ -33,7 +33,7 @@ window.addEventListener("DOMContentLoaded", function() {
 
 //timer
 
-	let deadline = "2018-04-10";
+	let deadline = "2018-04-18";
 	function getTimeRemaining(endtime) {
 		let t = Date.parse(endtime) - Date.parse(new Date()),
 				seconds = Math.floor( (t/1000) % 60 ),
@@ -89,37 +89,30 @@ window.addEventListener("DOMContentLoaded", function() {
 		}
 	});
 
-	let more = document.querySelector(".more");
+	/* Кнопки "Узнат подробнее"*/
+	let descriptionBtn = document.getElementsByClassName("description-btn");
 	let overlay = document.querySelector(".overlay");
 	let close = document.querySelector(".popup-close");
 
-	let moreBtn = document.getElementsByClassName("description-btn");
+	for ( let i = 0; i < descriptionBtn.length; i++) {
+		descriptionBtn[i].addEventListener("click", function() {
+			this.classList.add("more-splash");
+			overlay.style.display = "block";
+			document.body.style.overflow = "hidden";
+		});
 
-/*Это костыль, пока не получилось получать кнопки через цикл*/
-	moreBtn[0].addEventListener("click", function() {
-		this.classList.add("more-splash");
-		overlay.style.display = "block";
-		document.body.style.overflow = "hidden";
-	});
+		close.addEventListener("click", function() {
+			overlay.style.display = "none";
+			for ( let j = 0; j < descriptionBtn.length; j++) {
+				descriptionBtn[j].classList.remove('more-splash');
+			}
+			document.body.style.overflow = "";
+		});
+	}
 
-	moreBtn[1].addEventListener("click", function() {
-		this.classList.add("more-splash");
-		overlay.style.display = "block";
-		document.body.style.overflow = "hidden";
-	});
+	/*Кнопка "Узнать больше"*/
+	let more = document.querySelector(".more");
 
-	moreBtn[2].addEventListener("click", function() {
-	this.classList.add("more-splash");
-	overlay.style.display = "block";
-	document.body.style.overflow = "hidden";
-});
-
-		moreBtn[3].addEventListener("click", function() {
-	this.classList.add("more-splash");
-	overlay.style.display = "block";
-	document.body.style.overflow = "hidden";
-});
-/*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 	more.addEventListener("click", function() {
 		this.classList.add("more-splash");
 		overlay.style.display = "block";
