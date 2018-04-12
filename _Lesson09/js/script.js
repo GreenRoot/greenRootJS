@@ -33,7 +33,11 @@ window.addEventListener("DOMContentLoaded", function() {
 
 //timer
 
+<<<<<<< HEAD
 	let deadline = "2018-04-20";
+=======
+	let deadline = "2018-04-10";
+>>>>>>> d7ab457d9d32d4565d6781b3c9069047c9e8b772
 	function getTimeRemaining(endtime) {
 		let t = Date.parse(endtime) - Date.parse(new Date()),
 				seconds = Math.floor( (t/1000) % 60 ),
@@ -88,6 +92,28 @@ window.addEventListener("DOMContentLoaded", function() {
 			}
 		}
 	});
+
+<<<<<<< HEAD
+	/* Кнопки "Узнат подробнее"*/
+	let descriptionBtn = document.getElementsByClassName("description-btn");
+	let overlay = document.querySelector(".overlay");
+	let close = document.querySelector(".popup-close");
+
+	for ( let i = 0; i < descriptionBtn.length; i++) {
+		descriptionBtn[i].addEventListener("click", function() {
+			this.classList.add("more-splash");
+			overlay.style.display = "block";
+			document.body.style.overflow = "hidden";
+		});
+
+		close.addEventListener("click", function() {
+			overlay.style.display = "none";
+			for ( let j = 0; j < descriptionBtn.length; j++) {
+				descriptionBtn[j].classList.remove('more-splash');
+			}
+			document.body.style.overflow = "";
+		});
+	}
 
 	/* Кнопки "Узнат подробнее"*/
 	let descriptionBtn = document.getElementsByClassName("description-btn");
