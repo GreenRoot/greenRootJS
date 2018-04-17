@@ -321,5 +321,4 @@ window.addEventListener("DOMContentLoaded", function() {
 						}
 					});
 
-
 });
