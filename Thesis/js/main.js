@@ -53,50 +53,72 @@ ready.addEventListener('click', function() {
 		candidateBlock.className = "candidate-block";
 		mainCardsItem.insertBefore(candidateBlock, mainCardsItem.firstChild);
 
+		let candidatePhoto = document.createElement('div');
+		candidatePhoto.className = "photo photo-3";
+		candidateBlock.insertBefore(candidatePhoto, candidateBlock.firstChild);
+
+		//Результат
+		let candidateResult = document.createElement('div');
+		candidateResult.className = "result";
+		candidateBlock.appendChild(candidateResult);
+
+		let resultСountDiv = document.createElement('div');
+		resultСountDiv.className = "result-count";
+		candidateResult.insertBefore(resultСountDiv, candidateResult.firstChild);
+		resultСountDiv.textContent = "0%";
+
+		let progressDiv = document.createElement('div');
+		progressDiv.className = "progress";
+		candidateResult.appendChild(progressDiv);
+
+		let progressBarDiv = document.createElement('div');
+		progressBarDiv.className = "progress-bar progress-bar-1";
+		progressDiv.insertBefore(progressBarDiv, progressDiv.firstChild);
+
 		//Имя кандидата
 		let nameDiv = document.createElement('div');
 		nameDiv.className = ('name');
-		mainCardsItem.insertBefore(nameDiv, candidateBlock.children[1]);
-		nameDiv.innerHTML = candidate.name;
+		mainCardsItem.appendChild(nameDiv);
+		nameDiv.textContent = candidate.name;
 
 		//Возраст кандидата
 		let ageDiv = document.createElement('div');
 		ageDiv.className = "age";
-		mainCardsItem.insertBefore(ageDiv, candidateBlock.children[2]);
-		ageDiv.innerHTML = candidate.age + " лет";
+		mainCardsItem.appendChild(ageDiv);
+		ageDiv.textContent = candidate.age + " лет";
 
 		//Пол кандидата
 		let sexLabel = document.createElement('div');
 		sexLabel.className = "label";
-		mainCardsItem.insertBefore(sexLabel, candidateBlock.children[3]);
+		mainCardsItem.appendChild(sexLabel);
 		sexLabel.textContent = "Пол:"
 
 		let sexDiv = document.createElement('div');
 		sexDiv.className = "sex";
-		mainCardsItem.insertBefore(sexDiv, candidateBlock.children[4]);
-		sexDiv.innerHTML = candidate.sex;
+		mainCardsItem.appendChild(sexDiv);
+		sexDiv.textContent = candidate.sex;
 
 		//Полит. взгляды кандидата
 		let opinionLabel = document.createElement('div');
 		opinionLabel.className = "label";
-		mainCardsItem.insertBefore(opinionLabel, candidateBlock.children[5]);
+		mainCardsItem.appendChild(opinionLabel);
 		opinionLabel.textContent = "Полит. взгляды:"
 
 		let opinionDiv = document.createElement('div');
 		opinionDiv.className = "views";
-		mainCardsItem.insertBefore(opinionDiv, candidateBlock.children[6]);
-		opinionDiv.innerHTML = candidate.opinion;
+		mainCardsItem.appendChild(opinionDiv);
+		opinionDiv.textContent = candidate.opinion;
 
 		//Биография кандидата
 		let bioLabel = document.createElement('div');
 		bioLabel.className = "label";
-		mainCardsItem.insertBefore(bioLabel, candidateBlock.children[7]);
+		mainCardsItem.appendChild(bioLabel);
 		bioLabel.textContent = "Биография:";
 
 		let bioDiv = document.createElement('div');
 		bioDiv.className = "bio";
-		mainCardsItem.insertBefore(bioDiv, candidateBlock.children[8]);
-		bioDiv.innerHTML = candidate.bio;
+		mainCardsItem.appendChild(bioDiv);
+		bioDiv.textContent = candidate.bio;
 
 	};
 	addNewCandidate();
