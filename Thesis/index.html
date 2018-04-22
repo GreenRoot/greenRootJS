@@ -9,11 +9,11 @@
 	<!-- Main Page -->
 	<div class="main">
 		<div class="main-cards">
-			<div class="main-cards-item main-cards-item-active">
+			<div class="main-cards-item">
 				<div class="candidate-block">
 					<div class="photo photo-1"></div>
 					<div class="result">
-						<div class="result-count">35%</div>
+						<div class="result-count">0%</div>
 						<div class="progress">
 							<div class="progress-bar progress-bar-1"></div>
 						</div>
@@ -22,20 +22,20 @@
 				<div class="name">Иванов
 				Виктор Иванович</div>
 				<div class="age">38 лет</div>
-				Пол:
+				<div class="label">Пол:</div>
 				<div class="sex">Мужской</div>
-				Полит. взгляды:
+				<div class="label">Полит. взгляды:</div>
 				<div class="views">Левые</div>
-				Биография
+				<div class="label">Биография:</div>
 				<div class="bio">13 декабря 2016 года объявил, что намерен баллотироваться на президентских выборах 2018 года, опубликовал основные положения своей предвыборной программы и начал собирать сторонников</div>
 			</div>
-			<div class="main-cards-item ">
+			<div class="main-cards-item">
 				<div class="candidate-block">
 					<div class="photo photo-2"></div>
 					<div class="result">
-						<div class="result-count">65%</div>
+						<div class="result-count">0%</div>
 						<div class="progress">
-							<div class="progress-bar progress-bar-2"></div>
+							<div class="progress-bar progress-bar-1"></div>
 						</div>
 					</div>
 				</div>
@@ -74,12 +74,12 @@
 			<input type="text" id="name">
 			<label for="age">Возраст, лет</label>
 			<input type="text" id="age">
-			<div class="radio">
-				<input value="Мужской" id="male" checked name="sex" type="radio">
+			<form name="sexForm" class="radio">
+				<input value="Мужской" id="male" name="sex" type="radio">
 				<label for="sex">Мужчина</label>
 				<input value="Женский" id="female" name="sex" type="radio">
 				<label for="sex">Женщина</label>
-			</div>
+			</form>
 			<select id="select">
 				<option value="Либеральные">Либеральные</option>
 				<option value="Левые">Левые</option>
