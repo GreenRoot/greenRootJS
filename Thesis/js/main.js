@@ -24,13 +24,69 @@ let bioCandidate = document.getElementById('bio');
 let ready = document.getElementById('ready');
 let sex = document.getElementsByName('sex');
 
+let total_img = document.getElementsByClassName('img-female');
+
+let slide_left = document.getElementById('prev'),
+		slide_right = document.getElementById('next'),
+		female_img = document.getElementsByClassName('img-female'),
+		male_img = document.getElementsByClassName('img-male'),
+		idx = 0; // Индекс текущего слайда.
+
+let radios = document.querySelectorAll('input[type="radio"]');
+Array.from(radios).forEach(function(el){
+	el.addEventListener('change', function(){
+		if (el.id == "male") {
+			total_img = male_img;
+			for (let i = 0; i < female_img.length; i++) {
+				female_img[i].style.display = "none";
+			}
+			male_img[1].style.display = "block";
+		} else if (el.id == "female") {
+			console.log("fff")
+			total_img = female_img;
+			for (let i = 0; i < male_img.length; i++) {
+				male_img[i].style.display = "none";
+			}
+			female_img[1].style.display = "block";
+		}
+	});
+});
+
+showSlides(idx);
+
+function showSlides(n) {
+	if (n > total_img.length) {
+		idx = 1;
+	};
+	if (n < 1) {
+		idx = total_img.length;
+	};
+	for (let i = 0; i < total_img.length; i++) {
+		total_img[i].style.display = "none";
+	};
+	total_img[idx - 1].style.display = "block";
+};
+function plusSlides(n) {
+	showSlides(idx += n)
+};
+function currentSlide(n) {
+	showSlides(idx = n)
+};
+prev.addEventListener("click", function() {
+	plusSlides(-1);
+});
+next.addEventListener("click", function() {
+	plusSlides(1);
+});
 
 ready.addEventListener('click', function() {
 	for (let i = 0; i < sex.length; i++) {
 		if (sex[i].type == 'radio' && sex[i].checked){
 			checkedSex = sex[i].value
+			console.log(sex[i])
 		}
-	}
+	};
+
 	let candidate = {
 		name: nameCandidate.value,
 		age: ageCandidate.value,
@@ -38,6 +94,7 @@ ready.addEventListener('click', function() {
 		opinion: opinion.value, 
 		bio: bioCandidate.value
 	};
+
 	custom.style.display ='none';
 	mainPage.style.display = 'block';
 
@@ -119,8 +176,6 @@ ready.addEventListener('click', function() {
 		bioDiv.className = "bio";
 		mainCardsItem.appendChild(bioDiv);
 		bioDiv.textContent = candidate.bio;
-
 	};
 	addNewCandidate();
-	console.log(candidate);
 })
