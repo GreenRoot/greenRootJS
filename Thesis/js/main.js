@@ -24,47 +24,72 @@ let bioCandidate = document.getElementById('bio');
 let ready = document.getElementById('ready');
 let sex = document.getElementsByName('sex');
 
-let total_img = document.getElementsByClassName('img-female');
+let sliderImg = document.getElementsByClassName('img-female');
+let centerSliderImg = document.getElementsByClassName('center-img-female');
 
 let slide_left = document.getElementById('prev'),
 		slide_right = document.getElementById('next'),
-		female_img = document.getElementsByClassName('img-female'),
-		male_img = document.getElementsByClassName('img-male'),
-		idx = 0; // Индекс текущего слайда.
+		centerFemaleImg = document.getElementsByClassName('center-img-female'),
+		femaleImg = document.getElementsByClassName('img-female'),
+		centerMaleImg = document.getElementsByClassName('center-img-male'),
+		maleImg = document.getElementsByClassName('img-male'),
+		idx = 1;
 
 let radios = document.querySelectorAll('input[type="radio"]');
 Array.from(radios).forEach(function(el){
 	el.addEventListener('change', function(){
+
 		if (el.id == "male") {
-			total_img = male_img;
-			for (let i = 0; i < female_img.length; i++) {
-				female_img[i].style.display = "none";
+			sliderImg = maleImg;
+			centerSliderImg = centerMaleImg;
+			for (let i = 0; i < femaleImg.length; i++) {
+				femaleImg[i].style.display = "none";
+			};
+			for (let i = 0; i < centerFemaleImg.length; i++) {
+				centerFemaleImg[i].style.display = "none";
 			}
-			male_img[1].style.display = "block";
+			maleImg[1].style.display = "block";
+			centerMaleImg[1].style.display = "block";
 		} else if (el.id == "female") {
-			console.log("fff")
-			total_img = female_img;
-			for (let i = 0; i < male_img.length; i++) {
-				male_img[i].style.display = "none";
+			sliderImg = femaleImg;
+			centerSliderImg = centerFemaleImg;
+			for (let i = 0; i < maleImg.length; i++) {
+				maleImg[i].style.display = "none";
+			};
+			for (let i = 0; i < centerMaleImg.length; i++) {
+				centerMaleImg[i].style.display = "none";
 			}
-			female_img[1].style.display = "block";
-		}
+
+			femaleImg[1].style.display = "block";
+			centerFemaleImg[1].style.display = "block";
+
+		};
 	});
 });
 
 showSlides(idx);
 
 function showSlides(n) {
-	if (n > total_img.length) {
+	if (n > sliderImg.length) {
+		idx = 1;
+	};
+	if (n > centerSliderImg.length) {
 		idx = 1;
 	};
 	if (n < 1) {
-		idx = total_img.length;
+		idx = sliderImg.length;
 	};
-	for (let i = 0; i < total_img.length; i++) {
-		total_img[i].style.display = "none";
+	if (n < 1) {
+		idx = centerSliderImg.length;
 	};
-	total_img[idx - 1].style.display = "block";
+	for (let i = 0; i < sliderImg.length; i++) {
+		sliderImg[i].style.display = "none";
+	};
+	for (let i = 0; i < centerSliderImg.length; i++) {
+		centerSliderImg[i].style.display = "none";
+	};
+	sliderImg[idx - 1].style.display = "block";
+	centerSliderImg[idx - 1].style.display = "block";
 };
 function plusSlides(n) {
 	showSlides(idx += n)

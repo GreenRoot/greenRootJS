@@ -765,3 +765,37 @@
   background: #f2f2f2 url("../img/construct-8.png") center no-repeat;
   background-size: 60%;
 }
+
+.center-slider{
+  display: flex;
+  justify-content: center;
+}
+.center-img-female {
+}
+.center-img-male{
+  display: none;
+}
+.center-preview-female-1{
+  height: 500px;
+}
+.center-preview-female-2{
+  height: 500px;
+}
+.center-preview-female-3{
+  height: 500px;
+}
+.center-preview-female-4{
+  height: 500px;
+}
+.center-preview-male-1{
+  height: 500px;
+}
+.center-preview-male-2{
+  height: 500px;
+}
+.center-preview-male-3{
+  height: 500px;
+}
+.center-preview-male-4{
+  height: 500px;
+}
