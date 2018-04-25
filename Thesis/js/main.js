@@ -6,6 +6,20 @@ let customInfo = document.getElementsByClassName('custom-info')[0];
 let customChar = document.getElementsByClassName('custom-char')[0];
 let customStyle = document.getElementsByClassName('custom-style')[0];
 
+function reloadPage() {
+	mainPage.style.display = 'none';
+	overlay.style.display = 'none';
+	custom.style.display ='flex';
+	customInfo.style.display = 'block';
+	customChar.style.display = 'block';
+	customStyle.style.display = 'block';
+};
+
+if (document.location.hash === '#update') {
+	reloadPage();
+	window.location.replace("#");
+};
+
 //closing the modal window
 popupBtn.addEventListener('click', function() {
 	mainPage.style.display = 'none';
@@ -50,7 +64,7 @@ Array.from(radios).forEach(function(el){
 			}
 			maleImg[0].style.display = "block";
 			centerMaleImg[0].style.display = "block";
-		} else if (el.id == "female") {
+			} else if (el.id == "female") {
 			sliderImg = femaleImg;
 			centerSliderImg = centerFemaleImg;
 			for (let i = 0; i < maleImg.length; i++) {
@@ -62,7 +76,6 @@ Array.from(radios).forEach(function(el){
 
 			femaleImg[1].style.display = "block";
 			centerFemaleImg[1].style.display = "block";
-
 		};
 	});
 });
@@ -121,84 +134,37 @@ ready.addEventListener('click', function() {
 	custom.style.display ='none';
 	mainPage.style.display = 'block';
 
-	let candidatePhoto = centerSliderImg[idx - 1];
+	let candidatePhoto = centerSliderImg[idx - 1].cloneNode(true);
 	function addNewCandidate() {
+
+
 		//Новая карточка кандидата
-		let mainCards = document.getElementsByClassName('main-cards')[0]
-		let mainCardsItem = document.createElement('div');
-		mainCardsItem.className = "main-cards-item main-cards-item-active";
-		mainCards.insertBefore(mainCardsItem, mainCards.children[1]);
+		let mainCardsItem = document.getElementsByClassName('main-cards-item')[1]
+		mainCardsItem.style.display = "block";
 
-		//Фото кандидата
-		let candidateBlock = document.createElement('div');
-		candidateBlock.className = "candidate-block";
-		mainCardsItem.insertBefore(candidateBlock, mainCardsItem.firstChild);
+		// Фото кандидата
+		let candidateBlock = document.getElementsByClassName('candidate-block')[1];
 
-		// let candidatePhoto = document.createElement('div');
-		// candidatePhoto.className = "photo photo-3";
 		candidateBlock.insertBefore(candidatePhoto, candidateBlock.firstChild);
 
-		//Результат
-		let candidateResult = document.createElement('div');
-		candidateResult.className = "result";
-		candidateBlock.appendChild(candidateResult);
-
-		let resultСountDiv = document.createElement('div');
-		resultСountDiv.className = "result-count";
-		candidateResult.insertBefore(resultСountDiv, candidateResult.firstChild);
-		resultСountDiv.textContent = "0%";
-
-		let progressDiv = document.createElement('div');
-		progressDiv.className = "progress";
-		candidateResult.appendChild(progressDiv);
-
-		let progressBarDiv = document.createElement('div');
-		progressBarDiv.className = "progress-bar progress-bar-1";
-		progressDiv.insertBefore(progressBarDiv, progressDiv.firstChild);
-
-		//Имя кандидата
-		let nameDiv = document.createElement('div');
-		nameDiv.className = ('name');
-		mainCardsItem.appendChild(nameDiv);
+		// //Имя кандидата
+		let nameDiv = document.getElementsByClassName('name')[1];
 		nameDiv.textContent = candidate.name;
 
-		//Возраст кандидата
-		let ageDiv = document.createElement('div');
-		ageDiv.className = "age";
-		mainCardsItem.appendChild(ageDiv);
+		// //Возраст кандидата
+		let ageDiv = document.getElementsByClassName('age')[1];
 		ageDiv.textContent = candidate.age + " лет";
 
-		//Пол кандидата
-		let sexLabel = document.createElement('div');
-		sexLabel.className = "label";
-		mainCardsItem.appendChild(sexLabel);
-		sexLabel.textContent = "Пол:"
-
-		let sexDiv = document.createElement('div');
-		sexDiv.className = "sex";
-		mainCardsItem.appendChild(sexDiv);
+		// //Пол кандидата
+		let sexDiv = document.getElementsByClassName('sex')[1];
 		sexDiv.textContent = candidate.sex;
 
-		//Полит. взгляды кандидата
-		let opinionLabel = document.createElement('div');
-		opinionLabel.className = "label";
-		mainCardsItem.appendChild(opinionLabel);
-		opinionLabel.textContent = "Полит. взгляды:"
-
-		let opinionDiv = document.createElement('div');
-		opinionDiv.className = "views";
-		mainCardsItem.appendChild(opinionDiv);
+		// //Полит. взгляды кандидата
+		let opinionDiv = document.getElementsByClassName('views')[1];
 		opinionDiv.textContent = candidate.opinion;
 
-		//Биография кандидата
-		let bioLabel = document.createElement('div');
-		bioLabel.className = "label";
-		mainCardsItem.appendChild(bioLabel);
-		bioLabel.textContent = "Биография:";
-
-		let bioDiv = document.createElement('div');
-		bioDiv.className = "bio";
-		mainCardsItem.appendChild(bioDiv);
+		// //Биография кандидата
+		let bioDiv = document.getElementsByClassName('bio')[1];
 		bioDiv.textContent = candidate.bio;
 
 		//к (
@@ -212,8 +178,14 @@ ready.addEventListener('click', function() {
 		document.getElementsByClassName("center-preview-male-2")[0].style.cssText = "height: 195px; margin-right: 30px;";
 		document.getElementsByClassName("center-preview-male-3")[0].style.cssText = "height: 195px; margin-right: 30px;";
 		document.getElementsByClassName("center-preview-male-4")[0].style.cssText = "height: 195px; margin-right: 30px;";
-		
-
 	};
 	addNewCandidate();
 })
+
+let reset = document.getElementById('reset');
+reset.addEventListener('click', function() {
+	function reloadWindow() {
+		document.location.reload(true);
+	};
+	reloadWindow();
+});
