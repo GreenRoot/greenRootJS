@@ -197,10 +197,10 @@ voting.addEventListener('click', function() {
 	candidate1count.textContent = "49%"
 	candidate2.classList.remove('progress-bar-5');
 	candidate2.classList.add('progress-bar-2');
-	candidate2count.textContent = "31%"
+	candidate2count.textContent = "20%"
 	candidate3.classList.remove('progress-bar-6');
 	candidate3.classList.add('progress-bar-3');
-	candidate3count.textContent = "20%"
+	candidate3count.textContent = "31%"
 
 });
 
@@ -210,10 +210,10 @@ crime.addEventListener('click', function() {
 	candidate1count.textContent = "34%"
 	candidate2.classList.remove('progress-bar-2');
 	candidate2.classList.add('progress-bar-5');
-	candidate2count.textContent = "21%"
+	candidate2count.textContent = "45%"
 	candidate3.classList.remove('progress-bar-3');
 	candidate3.classList.add('progress-bar-6');
-	candidate3count.textContent = "45%"
+	candidate3count.textContent = "21%"
 })
 
 
