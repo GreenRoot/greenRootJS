@@ -33,6 +33,7 @@ popupBtn.addEventListener('click', function() {
 //creating a candidate
 let nameCandidate = document.getElementById('name');
 let ageCandidate = document.getElementById('age');
+
 let opinion = document.getElementById('select');
 let bioCandidate = document.getElementById('bio');
 let ready = document.getElementById('ready');
@@ -124,11 +125,23 @@ ready.addEventListener('click', function() {
 		}
 	};
 
+if (isNaN(ageCandidate.value)) {
+	alert("Возраст введён не верно!")
+	return false;
+} else if (ageCandidate.value > 81) {
+	alert("Кандидат уже не может принимать участие в выборах")
+	return false;
+	} else if (ageCandidate.value < 35) {
+		alert("Кандидат ещё не может принимать участие в выборах")
+		return false;
+	};
+
+
 	let candidate = {
 		name: nameCandidate.value,
 		age: ageCandidate.value,
 		sex: checkedSex,
-		opinion: opinion.value, 
+		opinion: opinion.value,
 		bio: bioCandidate.value
 	};
 	custom.style.display ='none';
