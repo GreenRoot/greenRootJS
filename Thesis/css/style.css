@@ -193,12 +193,32 @@
   transition: 1.5s;
 }
 
-.main-cards-item .candidate-block .result .progress-bar-1 {
+.main-cards-item .candidate-block .result .progress-bar-0 {
   height: 0%;
 }
 
+.main-cards-item .candidate-block .result .progress-bar-1 {
+  height: 49%;
+}
+
 .main-cards-item .candidate-block .result .progress-bar-2 {
-  height: 65%;
+  height: 31%;
+}
+
+.main-cards-item .candidate-block .result .progress-bar-3 {
+  height: 20%;
+}
+
+.main-cards-item .candidate-block .result .progress-bar-4 {
+  height: 34%;
+}
+
+.main-cards-item .candidate-block .result .progress-bar-5 {
+  height: 21%;
+}
+
+.main-cards-item .candidate-block .result .progress-bar-6 {
+  height: 45%;
 }
 
 .main-cards-item .name {

@@ -182,6 +182,43 @@ ready.addEventListener('click', function() {
 	addNewCandidate();
 })
 
+let voting = document.getElementById('voting');
+let crime = document.getElementById('crime');
+let candidate1 = document.getElementById('candidate1');
+let candidate1count = document.getElementsByClassName('result-count')[0];
+let candidate2 = document.getElementById('candidate2');
+let candidate2count = document.getElementsByClassName('result-count')[1];
+let candidate3 = document.getElementById('candidate3');
+let candidate3count = document.getElementsByClassName('result-count')[2];
+
+voting.addEventListener('click', function() {
+	candidate1.classList.remove('progress-bar-4');
+	candidate1.classList.add('progress-bar-1');
+	candidate1count.textContent = "49%"
+	candidate2.classList.remove('progress-bar-5');
+	candidate2.classList.add('progress-bar-2');
+	candidate2count.textContent = "31%"
+	candidate3.classList.remove('progress-bar-6');
+	candidate3.classList.add('progress-bar-3');
+	candidate3count.textContent = "20%"
+
+});
+
+crime.addEventListener('click', function() {
+	candidate1.classList.remove('progress-bar-1');
+	candidate1.classList.add('progress-bar-4');
+	candidate1count.textContent = "34%"
+	candidate2.classList.remove('progress-bar-2');
+	candidate2.classList.add('progress-bar-5');
+	candidate2count.textContent = "21%"
+	candidate3.classList.remove('progress-bar-3');
+	candidate3.classList.add('progress-bar-6');
+	candidate3count.textContent = "45%"
+})
+
+
+
+
 let reset = document.getElementById('reset');
 reset.addEventListener('click', function() {
 	function reloadWindow() {
