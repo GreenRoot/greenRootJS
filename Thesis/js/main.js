@@ -48,8 +48,8 @@ Array.from(radios).forEach(function(el){
 			for (let i = 0; i < centerFemaleImg.length; i++) {
 				centerFemaleImg[i].style.display = "none";
 			}
-			maleImg[1].style.display = "block";
-			centerMaleImg[1].style.display = "block";
+			maleImg[0].style.display = "block";
+			centerMaleImg[0].style.display = "block";
 		} else if (el.id == "female") {
 			sliderImg = femaleImg;
 			centerSliderImg = centerFemaleImg;
@@ -108,7 +108,6 @@ ready.addEventListener('click', function() {
 	for (let i = 0; i < sex.length; i++) {
 		if (sex[i].type == 'radio' && sex[i].checked){
 			checkedSex = sex[i].value
-			console.log(sex[i])
 		}
 	};
 
@@ -119,10 +118,10 @@ ready.addEventListener('click', function() {
 		opinion: opinion.value, 
 		bio: bioCandidate.value
 	};
-
 	custom.style.display ='none';
 	mainPage.style.display = 'block';
 
+	let candidatePhoto = centerSliderImg[idx - 1];
 	function addNewCandidate() {
 		//Новая карточка кандидата
 		let mainCards = document.getElementsByClassName('main-cards')[0]
@@ -135,8 +134,8 @@ ready.addEventListener('click', function() {
 		candidateBlock.className = "candidate-block";
 		mainCardsItem.insertBefore(candidateBlock, mainCardsItem.firstChild);
 
-		let candidatePhoto = document.createElement('div');
-		candidatePhoto.className = "photo photo-3";
+		// let candidatePhoto = document.createElement('div');
+		// candidatePhoto.className = "photo photo-3";
 		candidateBlock.insertBefore(candidatePhoto, candidateBlock.firstChild);
 
 		//Результат
@@ -201,6 +200,20 @@ ready.addEventListener('click', function() {
 		bioDiv.className = "bio";
 		mainCardsItem.appendChild(bioDiv);
 		bioDiv.textContent = candidate.bio;
+
+		//к (
+		document.getElementsByClassName('center-img-male')[0].style.display = 'block';
+
+		document.getElementsByClassName("center-preview-female-1")[0].style.cssText = "height: 195px; margin-right: 30px;";
+		document.getElementsByClassName("center-preview-female-2")[0].style.cssText = "height: 195px; margin-right: 30px;";
+		document.getElementsByClassName("center-preview-female-3")[0].style.cssText = "height: 195px; margin-right: 30px;";
+		document.getElementsByClassName("center-preview-female-4")[0].style.cssText = "height: 195px; margin-right: 30px;";
+		document.getElementsByClassName("center-preview-male-1")[0].style.cssText = "height: 195px; margin-right: 30px;";
+		document.getElementsByClassName("center-preview-male-2")[0].style.cssText = "height: 195px; margin-right: 30px;";
+		document.getElementsByClassName("center-preview-male-3")[0].style.cssText = "height: 195px; margin-right: 30px;";
+		document.getElementsByClassName("center-preview-male-4")[0].style.cssText = "height: 195px; margin-right: 30px;";
+		
+
 	};
 	addNewCandidate();
 })
